@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img class="k" src="logo.png" />
+        </div>
+        <div class="list">
+            <h4><a href="index.html" class="link">Home</a></h4>
+            <h4><a href="about.html" class="link">About</a></h4>
+            <h4><a href="skills.html" class="link">Skills</a></h4>
+            <h4><a href="projects.html" class="link">Projects</a></h4>
+            <h4><a href="Resume.html" class="link">Resume</a></h4>
+            <h4><a href="contact.html" class="link">Contact</a></h4>
+        </div>
+    </nav>
+    <div class="rps">
+        <form>
+            <h3>Reach out to me</h3>
+            <input type="text" id="Name" placeholder="   Enter your name" required />
+            <input type="text" id="Email" placeholder="   Enter your email" required />
+            <input type="text" id="message" placeholder="   message" required />
+
+
+
+            <button type="submit" onclick="Send(); return false">Send</button>
+        </form>
+    </div>
+    <div class="footer">
+        <ul>
+            <li><span>2023 &copy; All Rights Reserved</span></li>
+            <a class="link" href="projects.html">
+                <li><span>Testimonials</span></li>
+            </a>
+            <a class="link" href="contact.html">
+                <li><span>Contact</span></li>
+            </a>
+            <a class="link" href="about.html">
+                <li><span>About</span></li>
+            </a>
+        </ul>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function Send() {
+            console.log("function invoked");
+
+            var name = document.getElementById("Name").value;
+
+            var email = document.getElementById("Email").value;
+
+            var message = document.getElementById("message").value;
+
+            var body = "Name :" + name + "<br> E-mail :" + email +  "<br> Message :" + message;
+            console.log(body);
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "kushalsharma9889@gmail.com",
+                Password: "FF6BE78ABCE6D05F3B74F3B4DB49FD60ED18",
+                To: "kushalsharma9889@gmail.com",
+                From: "kushalsharma9889@gmail.com",
+                Subject: "sample subbject",
+                Body: body,
+            }).then((message) => alert("Message Delivered Successfully"));
+        }
+    </script>
+</body>
+
+</html>
